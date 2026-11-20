@@ -1,5 +1,5 @@
-id: norway-climate-service
-name: Norway Climate Service
+id: norway-geo-service
+name: Norway Geo Service
 
 extent:
   name: Norway

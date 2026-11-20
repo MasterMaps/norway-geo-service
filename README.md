@@ -1,15 +1,15 @@
-# Norway Climate Service
+# Norway Geo Service
 
-This project is based on the [Open Geo Service](https://open-geo-service.dhis2.org/) and is intended solely as an example of how Open Geo Service can be adapted for a national context (here, Norwegian climate data). It is not a production service, but a demonstration of adaptation and integration principles.
+This project is based on [Open Geo Service](https://open-geo-service.dhis2.org/) and is intended solely as an example of how Open Geo Service can be adapted for a national context (here, Norwegian climate data). It is not a production service, but a demonstration of adaptation and integration principles.
 
-This repository provides tools and scripts for downloading, processing, and serving Norwegian climate data, including daily temperature and precipitation from the SeNorge dataset.
+This repository provides tools and scripts for downloading, processing, and serving Norwegian climate data, including daily temperature and precipitation from seNorge, through the [senorge-geoservice-plugin](https://github.com/MasterMaps/senorge-geoservice-plugin).
 
 ## Installation
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/MasterMaps/norway-climate-service.git
-   cd norway-climate-service
+   git clone https://github.com/MasterMaps/norway-geo-service.git
+   cd norway-geo-service
    ```
 2. **Install dependencies:**
    It is recommended to use [uv](https://github.com/astral-sh/uv) for dependency management.
@@ -19,6 +19,13 @@ This repository provides tools and scripts for downloading, processing, and serv
    ```
 
    This will create a `.venv` and install all dependencies as specified in `pyproject.toml` and `uv.lock`. If you use `make install`, it will also run `uv sync` for you.
+3. **Configure:**
+
+   ```sh
+   cp .env.example .env
+   ```
+
+   Set `GEOSERVICE_CONFIG` in `.env` to the absolute path of this folder's `geoservice.yaml`.
 
 ## Usage
 
@@ -37,7 +44,7 @@ You can run this instance following the official Open Geo Service pattern:
    make run
    ```
 
-This will start the API (by default at http://localhost:8000). Visit `/extent` to confirm the API is running and returning your configured bounding box. The OpenAPI/Swagger UI is typically available at `/docs`.
+This will start the API at http://localhost:8002. Visit `/extent` to confirm the API is running and returning your configured bounding box. The OpenAPI/Swagger UI is typically available at `/docs`.
 
 #### Ingest Data via the API
 
@@ -46,7 +53,7 @@ Once the service is running, you can ingest data by making a POST request to the
 Example using `curl`:
 
 ```sh
-curl -X POST http://localhost:8000/ingestions \
+curl -X POST http://localhost:8002/ingestions \
   -H "Content-Type: application/json" \
-  -d '{"dataset_id": "senorge_temperature_daily", "temporal_extent": ["1990-01-01", "1990-01-31"]}'
+  -d '{"dataset_id": "senorge_temperature_daily", "start": "1990-01-01", "end": "1990-01-31"}'
 ```

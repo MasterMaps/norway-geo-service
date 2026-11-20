@@ -1622,7 +1622,7 @@ wheels = [
 ]
 
 [[package]]
-name = "norway-climate-service"
+name = "norway-geo-service"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
