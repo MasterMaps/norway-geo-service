@@ -1,5 +1,5 @@
 [project]
-name = "norway-climate-service"
+name = "norway-geo-service"
 version = "0.1.0"
 requires-python = ">=3.13"
 description = "Open Geo Service instance for Norway"
