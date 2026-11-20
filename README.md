@@ -1,6 +1,6 @@
 # Norway Climate Service
 
-This project is based on the [Open Climate Service](https://dhis2.github.io/climate-api/) and is intended solely as an example of how Open Climate Service can be adapted for a national context (here, Norwegian climate data). It is not a production service, but a demonstration of adaptation and integration principles.
+This project is based on the [Open Geo Service](https://open-geo-service.dhis2.org/) and is intended solely as an example of how Open Geo Service can be adapted for a national context (here, Norwegian climate data). It is not a production service, but a demonstration of adaptation and integration principles.
 
 This repository provides tools and scripts for downloading, processing, and serving Norwegian climate data, including daily temperature and precipitation from the SeNorge dataset.
 
@@ -24,7 +24,7 @@ This repository provides tools and scripts for downloading, processing, and serv
 
 ### Running the Instance
 
-You can run this instance following the official Open Climate Service pattern:
+You can run this instance following the official Open Geo Service pattern:
 
 1. **Install dependencies:**
 
